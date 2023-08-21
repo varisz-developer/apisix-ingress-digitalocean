@@ -1,0 +1,16 @@
+apiVersion: apisix.apache.org/v2
+kind: ApisixRoute
+metadata:
+  name: apisix-route
+  namespace: ingress-apisix
+spec:
+  http:
+    - name: route-1
+      match:
+        hosts:
+          - manage.domain.com
+        paths:
+          - /apisix
+      backends:
+        - serviceName: apisix-dashboard
+          servicePort: 80
